@@ -9,8 +9,8 @@
         <module>ConversationPlatformPersistence</module>
         <module>ConversationPlatformBusinessModules</module>
         <module>ConversationPlatformLib</module>
-        <module>ConversationPlatformExternalServices</module>
         <module>ConversationPlatformConfig</module>
+        <module>ConversationPlatformExternalServices</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
