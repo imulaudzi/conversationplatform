@@ -1,4 +1,4 @@
-package com.isaac.conversationplatformpersistence.model;
+package com.isaac.conversationplatformpersistence.dao.model;
 
 import java.util.Date;
 
