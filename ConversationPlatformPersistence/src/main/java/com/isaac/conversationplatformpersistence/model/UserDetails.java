@@ -1,12 +1,16 @@
 package com.isaac.conversationplatformpersistence.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
  * Created by isaac on 2016/09/06.
  */
+@Entity
 public class UserDetails {
 
+    @Id
     private Long userId;
     private String name;
     private String surname;
