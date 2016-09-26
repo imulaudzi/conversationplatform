@@ -1,4 +1,4 @@
-package com.isaac.conversationplatformpersistence.dao;
+package com.isaac.conversationplatform.dao;
 
 /**
  * Created by isaac on 2016/09/07.

@@ -1,19 +1,28 @@
-package com.isaac.conversationplatformpersistence.dao.model;
+package com.isaac.conversationplatform.dao.model;
 
-import java.util.Date;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
 
 /**
  * Created by isaac on 2016/09/07.
  */
+@Entity
+@Table(name = "COMMENT")
 public class Comment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long commentId;
     //TODO content is either text, audio, photo or video
+    @Column(name = "content")
     private String content;
+    @Column(name = "posted_by")
     private UserDetails postedBy;
+    @Column(name = "topic_id")
     private Topic topicId;
-    //TODO must use JODA date api
-    private Date postedOnDate;
+    @Column(name = "posted_date_time")
+    private LocalDateTime postedOnDate;
 
     public Long getCommentId() {
         return commentId;
@@ -47,11 +56,11 @@ public class Comment {
         this.topicId = topicId;
     }
 
-    public Date getPostedOnDate() {
+    public LocalDateTime getPostedOnDate() {
         return postedOnDate;
     }
 
-    public void setPostedOnDate(Date postedOnDate) {
+    public void setPostedOnDate(LocalDateTime postedOnDate) {
         this.postedOnDate = postedOnDate;
     }
 }

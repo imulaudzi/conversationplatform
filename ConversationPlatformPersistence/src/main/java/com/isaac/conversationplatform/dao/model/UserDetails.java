@@ -1,13 +1,15 @@
-package com.isaac.conversationplatformpersistence.dao.model;
+package com.isaac.conversationplatform.dao.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * Created by isaac on 2016/09/06.
  */
 @Entity
+@Table
 public class UserDetails {
 
     @Id

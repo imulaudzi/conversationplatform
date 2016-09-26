@@ -16,6 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <ojdbc6.version>11.2.0.3.0</ojdbc6.version>
+        <jodatime.version>2.9.4</jodatime.version>
     </properties>
 
     <dependencyManagement>

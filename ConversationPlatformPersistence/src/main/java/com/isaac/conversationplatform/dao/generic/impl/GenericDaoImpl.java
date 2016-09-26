@@ -1,7 +1,7 @@
-package com.isaac.conversationplatformpersistence.dao.generic.impl;
+package com.isaac.conversationplatform.dao.generic.impl;
 
 import java.io.Serializable;
-import com.isaac.conversationplatformpersistence.dao.generic.GenericDao;
+import com.isaac.conversationplatform.dao.generic.GenericDao;
 
 /**
  * Created by isaac on 2016/09/19.

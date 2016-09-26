@@ -1,4 +1,4 @@
-package com.isaac.conversationplatformpersistence.dao.generic;
+package com.isaac.conversationplatform.dao.generic;
 
 import java.io.Serializable;
 
