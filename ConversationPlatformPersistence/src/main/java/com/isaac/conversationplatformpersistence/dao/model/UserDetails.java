@@ -1,4 +1,4 @@
-package com.isaac.conversationplatformpersistence.model;
+package com.isaac.conversationplatformpersistence.dao.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
