@@ -18,7 +18,7 @@
         <ojdbc6.version>11.2.0.3.0</ojdbc6.version>
         <jodatime.version>2.9.4</jodatime.version>
     </properties>
-
+	<!--Hello -->
     <dependencyManagement>
         <dependencies>
             <dependency>
