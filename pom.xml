@@ -17,8 +17,26 @@
 
         <ojdbc6.version>11.2.0.3.0</ojdbc6.version>
         <jodatime.version>2.9.4</jodatime.version>
+        <sonar.maven.plugin.version>3.2</sonar.maven.plugin.version>
+
+        <sonar.jdbc.url>jdbc:postgresql://localhost/postgres</sonar.jdbc.url>
+        <sonar.jdbc.username>postgres</sonar.jdbc.username>
+        <sonar.jdbc.password>isaac2</sonar.jdbc.password>
+        <sonar.host.url>http://isaac-H97:9000</sonar.host.url>
+
     </properties>
-	<!--Hello -->
+
+    <build>
+    <pluginManagement>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>${sonar.maven.plugin.version}</version>
+        </plugin>
+            </plugins>
+    </pluginManagement>
+    </build>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -53,6 +71,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--sdsdasdasdad-->
         </dependencies>
     </dependencyManagement>
 </project>
