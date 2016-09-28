@@ -32,10 +32,5 @@ public class Like {
     public void setCommentId(Comment commentId) {
         this.commentId = commentId;
     }
-//    TODO
 
-
-
-
-//    TODO
 }
