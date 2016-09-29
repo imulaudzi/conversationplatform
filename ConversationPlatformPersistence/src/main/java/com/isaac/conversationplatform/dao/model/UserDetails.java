@@ -1,23 +1,32 @@
 package com.isaac.conversationplatform.dao.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * Created by isaac on 2016/09/06.
  */
 @Entity
-@Table
+@Table(name = "USER_DETAILS")
 public class UserDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "USER_ID")
     private Long userId;
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "SURNAME")
     private String surname;
+    @Column(name = "DISPLAY_NAME")
     private String displayName;
-    private Date dateOfBirth;
+    @Column(name = "DATE_OF_BIRTH")
+    private LocalDateTime dateOfBirth;
 
     public Long getUserId() {
         return userId;
@@ -51,11 +60,11 @@ public class UserDetails {
         this.displayName = displayName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDateTime getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDateTime dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 }

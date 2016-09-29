@@ -1,18 +1,32 @@
 package com.isaac.conversationplatform.dao.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * Created by isaac on 2016/09/06.
  */
+@Entity
+@Table(name = "TOPIC")
 public class Topic {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "TOPIC_ID")
     private Long topicId;
+    @Column(name = "TOPIC_DESC")
     private String topicDescription;
     //TODO content is either text, audio, photo or video
+    @Column(name = "CONTENT")
     private String content;
+    @Column(name = "POSTED_BY")
     private UserDetails postedBy;
-    //TODO must use JODA date api
+    @Column(name = "POSTED_DATE_TIME")
     private Date postedOnDate;
 
     public Long getTopicId() {

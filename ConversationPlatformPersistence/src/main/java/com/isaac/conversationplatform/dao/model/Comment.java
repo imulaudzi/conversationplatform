@@ -13,15 +13,16 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "COMMENT_ID")
     private Long commentId;
     //TODO content is either text, audio, photo or video
-    @Column(name = "content")
+    @Column(name = "CONTENT")
     private String content;
-    @Column(name = "posted_by")
+    @Column(name = "POSTED_BY")
     private UserDetails postedBy;
-    @Column(name = "topic_id")
+    @Column(name = "TOPIC_ID")
     private Topic topicId;
-    @Column(name = "posted_date_time")
+    @Column(name = "POSTED_DATE_TIME")
     private LocalDateTime postedOnDate;
 
     public Long getCommentId() {
