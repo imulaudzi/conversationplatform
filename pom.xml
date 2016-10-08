@@ -16,7 +16,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <ojdbc6.version>11.2.0.3.0</ojdbc6.version>
+        <mysql.version>5.1.38</mysql.version>
         <jodatime.version>2.9.4</jodatime.version>
         <sonar.maven.plugin.version>3.2</sonar.maven.plugin.version>
 

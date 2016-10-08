@@ -17,12 +17,13 @@
             <artifactId>h2</artifactId>
         </dependency>
 
-        <!--JDBC Driver (Oracle) For Now!! -->
+        <!--JDBC Driver (MySQL) -->
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>${ojdbc6.version}</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
         </dependency>
+
 
         <!-- DataSource (HikariCP) -->
         <dependency>
