@@ -15,11 +15,20 @@
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+        <!-- Runtime dependencies-->
         <mysql.version>5.1.38</mysql.version>
         <jodatime.version>2.9.4</jodatime.version>
         <sonar.maven.plugin.version>3.2</sonar.maven.plugin.version>
 
+
+        <!--Testing dependencies-->
+        <junit.version>4.11</junit.version>
+        <assertj.version>3.2.0</assertj.version>
+        <springtest.version>4.1.6.RELEASE</springtest.version>
+        <dbunit.version>2.5.1</dbunit.version>
+        <springtestdbunit.version>1.2.1</springtestdbunit.version>
+
+        <!--SonarQube -->
         <sonar.jdbc.url>jdbc:mysql://localhost:3306/sonarQube</sonar.jdbc.url>
         <sonar.jdbc.username>sonar</sonar.jdbc.username>
         <sonar.jdbc.password>sonar</sonar.jdbc.password>
