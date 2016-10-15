@@ -25,7 +25,7 @@ public class Topic {
     @Column(name = "CONTENT")
     private String content;
     @Column(name = "POSTED_BY")
-    private UserDetails postedBy;
+    private UserInfo postedBy;
     @Column(name = "POSTED_DATE_TIME")
     private Date postedOnDate;
 
@@ -53,11 +53,11 @@ public class Topic {
         this.content = content;
     }
 
-    public UserDetails getPostedBy() {
+    public UserInfo getPostedBy() {
         return postedBy;
     }
 
-    public void setPostedBy(UserDetails postedBy) {
+    public void setPostedBy(UserInfo postedBy) {
         this.postedBy = postedBy;
     }
 

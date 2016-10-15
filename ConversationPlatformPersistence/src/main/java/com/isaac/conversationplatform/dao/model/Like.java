@@ -19,17 +19,17 @@ public class Like {
     @Column(name = "LIKE_ID")
     private Long like_id;
     @Column(name = "USER_ID")
-    private UserDetails userId;
+    private UserInfo userId;
     @Column(name = "TOPIC_ID")
     private Topic topicId;
     @Column(name = "COMMENT_ID")
     private Comment commentId;
 
-    public UserDetails getUserId() {
+    public UserInfo getUserId() {
         return userId;
     }
 
-    public void setUserId(UserDetails userId) {
+    public void setUserId(UserInfo userId) {
         this.userId = userId;
     }
 
