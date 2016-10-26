@@ -1,6 +1,8 @@
 package com.isaac.conversationplatform.dao;
 
+import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.isaac.conversationplatform.dao.model.Comment;
+import org.hibernate.engine.spi.PersistenceContext;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,16 +14,16 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import  com.github.springtestdbunit.DbUnitTestExecutionListener;
 
-import javax.persistence.PersistenceContext;
 
 
 /**
  * Created by isaac on 2016/10/08.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {PersistenceContext.class})
+@ContextConfiguration(locations = {"/test-convo-persistence-config.xml"})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, TransactionalTestExecutionListener.class, DbUnitTestExecutionListener.class
 })
+//@DatabaseSetup("dataset.xml")
 public class CommentRepositoryTest {
 
     @Autowired

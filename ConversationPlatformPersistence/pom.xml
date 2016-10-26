@@ -20,5 +20,10 @@
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ConversationPlatformConfig</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

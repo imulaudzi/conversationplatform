@@ -1,0 +1,13 @@
+<dataset>
+<comment id="123"
+         content="content"
+         postedBy="isaac"
+         topicId="1"
+         postedOnDate="2016-10-04 11:13:28"/>
+
+    <comment id="121"
+             content="content2"
+             postedBy="isaac2"
+             topicId="2"
+             postedOnDate="2016-10-05 11:13:28"/>
+</dataset>
