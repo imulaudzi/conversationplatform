@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.isaac</groupId>
@@ -13,6 +14,69 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <!--This JAXB plugin has more features than the one provided by Sun e.g. interface impl-->
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.8.3</version>
+                <!--<dependencies>-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.jsondoc</groupId>-->
+                        <!--<artifactId>jsondoc-core</artifactId>-->
+                        <!--<version>${jsondoc.version}</version>-->
+                    <!--</dependency>-->
+
+                <!--</dependencies>-->
+                <executions>
+                    <execution>
+                        <id>Common type generation</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <generateDirectory>${project.build.directory}/generated-sources/</generateDirectory>
+                            <generatePackage>com.isaac.conversationplatform.generated</generatePackage>
+                            <schemaDirectory>src/main/resources/schema/</schemaDirectory>
+
+                            <schemaIncludes>
+                                <includeSchema>UserAccountRequest-1.0.xsd</includeSchema>
+                                <includeSchema>*/*.xsd</includeSchema>
+                                <includeSchema>*/*/*.xsd</includeSchema>
+                            </schemaIncludes>
+
+                            <bindingDirectory>src/main/resources/schema/</bindingDirectory>
+                            <!--<bindingIncludes>-->
+                                <!--<include>common-1.0.xjb</include>-->
+                            <!--</bindingIncludes>-->
+
+
+                            <extension>true</extension>
+                            <args>
+                                <arg>-Xannotate</arg>
+                                <arg>-Xinheritance</arg>
+                            </args>
+                            <plugins>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics</artifactId>
+                                    <version>0.5.3</version>
+                                </plugin>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics-annotate</artifactId>
+                                    <version>${jaxb.annotations.version}</version>
+                                </plugin>
+
+                            </plugins>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>

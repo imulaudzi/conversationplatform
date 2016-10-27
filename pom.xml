@@ -20,6 +20,8 @@
         <jodatime.version>2.9.4</jodatime.version>
         <sonar.maven.plugin.version>3.2</sonar.maven.plugin.version>
 
+        <jsondoc.version>1.1.15</jsondoc.version>
+        <jaxb.annotations.version>1.0.1</jaxb.annotations.version>
 
         <!--Testing dependencies-->
         <junit.version>4.11</junit.version>
