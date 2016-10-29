@@ -1,4 +1,4 @@
-package com.isaac.conversationplatform.utils;
+package com.isaac.conversationplatform.util;
 
 /**
  * Created by isaac on 2016/10/18.
@@ -6,6 +6,7 @@ package com.isaac.conversationplatform.utils;
 public enum ReturnCodeLookUp {
     UNKNOWN_ERROR(-1, "An unknown error occurred"),
     SUCCESS(1,"Success"),
+    USER_ALREADY_REGISTERED(2,"User already registered"),
     UNHANDLED_ERROR(1999,"Unhandled exception");
 
     private final Integer returnCode;

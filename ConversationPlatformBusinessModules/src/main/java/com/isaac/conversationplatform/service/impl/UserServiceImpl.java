@@ -3,16 +3,22 @@ package com.isaac.conversationplatform.service.impl;
 import com.isaac.conversationplatform.dao.UserInfoRepository;
 import com.isaac.conversationplatform.dao.model.UserInfo;
 import com.isaac.conversationplatform.dao.model.enums.AccountStatus;
+import com.isaac.conversationplatform.dto.UserAccountStatus;
 import com.isaac.conversationplatform.service.UserInfoService;
+import com.isaac.conversationplatform.util.ReturnCodeLookUp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by isaac on 2016/10/13.
  */
+@Service
+@Transactional
 public class UserServiceImpl implements UserInfoService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserInfoService.class);
@@ -21,16 +27,18 @@ public class UserServiceImpl implements UserInfoService {
 
 
     @Override
-    public UserInfo registerUser(UserInfo userInfo) {
+    public UserAccountStatus registerUser(UserInfo userInfo) {
         UserInfo foundUser;
+        UserAccountStatus registrationStatus = new UserAccountStatus();
         foundUser = this.findThisUser(userInfo);
         if (foundUser != null) {
+            registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.USER_ALREADY_REGISTERED);
             LOGGER.info("User already registered.");
         } else {
             LOGGER.info("This user is not registered. Will continue and create the user...");
-            foundUser = createUser(userInfo);
+            registrationStatus.setUserInfo( createUser(userInfo));
         }
-        return foundUser;
+        return registrationStatus;
     }
 
     UserInfo findThisUser(UserInfo userSearchDetails) {

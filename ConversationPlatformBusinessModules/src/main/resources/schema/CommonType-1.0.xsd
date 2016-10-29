@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1"
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           xmlns:annox="http://annox.dev.java.net"
+           jaxb:extensionBindingPrefixes="xjc annox">
+    <xs:annotation>
+        <xs:appinfo>
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.isaac.conversationplatform"/>
+        </jaxb:schemaBindings>
+        <jaxb:globalBindings>
+            <xjc:serializable uid="123123"></xjc:serializable>
+            <xjc:javaType adapter="com.isaac.conversationplatform.transformation.DateTimeXmlAdapter"
+                          name="java.time.LocalDateTime" xmlType="xs:dateTime"></xjc:javaType>
+            <xjc:javaType adapter="com.isaac.conversationplatform.transformation.DateTimeXmlAdapter"
+                          name="java.time.LocalDateTime" xmlType="xs:date"></xjc:javaType>
+        </jaxb:globalBindings>
+        </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType name="GenericResponse">
+        <xs:sequence>
+            <xs:element name="responseCodeMessage" type="ResponseCodeMessage" minOccurs="1" maxOccurs="1">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ResponseCodeMessage">
+        <xs:sequence>
+            <xs:element name="code" type="xs:int" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="message" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,6 +1,7 @@
 package com.isaac.conversationplatform.service;
 
 import com.isaac.conversationplatform.dao.model.UserInfo;
+import com.isaac.conversationplatform.dto.UserAccountStatus;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public interface UserInfoService {
 
-    UserInfo registerUser(UserInfo userInfo);
+    UserAccountStatus registerUser(UserInfo userInfo);
 
     UserInfo deRegisterUSer(UserInfo userInfo);
 
