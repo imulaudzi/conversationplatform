@@ -32,9 +32,10 @@ public class UserController {
         UserInfo userInfo = registrationTransformer.userInfoFromXsdObject(register);
         UserAccountStatus userAccountStatus = userInfoService.registerUser(userInfo);
 
+        return this.registrationResponse(httpServletResponse, userAccountStatus);
     }
 
-    private UserAccountResponse registrationResponse(HttpServletResponse httpServletResponse,UserAccountStatus userAccountStatus){
+    private UserAccountResponse registrationResponse(HttpServletResponse httpServletResponse, UserAccountStatus userAccountStatus) {
         UserAccountResponse response = new UserAccountResponse();
         response.setUserId(userAccountStatus.getUserId());
         response.setResponseCodeMessage(ResponseUtil.responseFromEnum(userAccountStatus.getReturnCodeLookUp()));
