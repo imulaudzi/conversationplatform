@@ -12,14 +12,15 @@ import com.isaac.conversationplatform.service.UserInfoService;
 import com.isaac.conversationplatform.transformation.RegistrationTransformer;
 import com.isaac.conversationplatform.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -27,15 +28,21 @@ public class UserController {
     @Autowired
     private RegistrationTransformer registrationTransformer;
 
-    public UserAccountResponse register(@RequestBody UserAccountRequest register, HttpServletResponse httpServletResponse) {
+    @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String hello() {
+        return "welcome";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public UserAccountResponse register(@RequestBody UserAccountRequest register) {
 
         UserInfo userInfo = registrationTransformer.userInfoFromXsdObject(register);
         UserAccountStatus userAccountStatus = userInfoService.registerUser(userInfo);
 
-        return this.registrationResponse(httpServletResponse, userAccountStatus);
+        return this.registrationResponse( userAccountStatus);
     }
 
-    private UserAccountResponse registrationResponse(HttpServletResponse httpServletResponse, UserAccountStatus userAccountStatus) {
+    private UserAccountResponse registrationResponse(  UserAccountStatus userAccountStatus) {
         UserAccountResponse response = new UserAccountResponse();
         response.setUserId(userAccountStatus.getUserId());
         response.setResponseCodeMessage(ResponseUtil.responseFromEnum(userAccountStatus.getReturnCodeLookUp()));

@@ -3,10 +3,12 @@ package com.isaac.conversationplatform.transformation.impl;
 import com.isaac.conversationplatform.dao.model.UserInfo;
 import com.isaac.conversationplatform.generated.UserAccountRequest;
 import com.isaac.conversationplatform.transformation.RegistrationTransformer;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by isaac on 2016/10/27.
  */
+@Service
 public class RegistrationTransformerImpl implements RegistrationTransformer{
     @Override
     public UserInfo userInfoFromXsdObject(UserAccountRequest xsdUser) {
