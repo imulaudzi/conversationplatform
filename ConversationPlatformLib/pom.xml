@@ -45,13 +45,20 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <!-- for compile only, your container should have this -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
+            <version>${servletapi.version}</version>
             <scope>provided</scope>
         </dependency>
-
         <!-- Spring Data JPA -->
         <dependency>
             <groupId>org.springframework.data</groupId>

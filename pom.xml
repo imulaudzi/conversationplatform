@@ -11,8 +11,8 @@
         <module>ConversationPlatformBusinessModules</module>
         <module>ConversationPlatformLib</module>
         <module>ConversationPlatformConfig</module>
-        <module>ConversationPlatformExternalServices</module>
         <module>ConversationPlatformEar</module>
+        <module>ConversationPlatformWeb</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,6 +36,11 @@
         <sonar.jdbc.username>sonar</sonar.jdbc.username>
         <sonar.jdbc.password>sonar</sonar.jdbc.password>
         <sonar.host.url>http://isaac-H97:9000</sonar.host.url>
+
+        <jdk.version>1.8</jdk.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
+        <jstl.version>1.2</jstl.version>
+        <servletapi.version>3.0.1</servletapi.version>
 
     </properties>
 

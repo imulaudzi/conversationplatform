@@ -8,8 +8,8 @@
        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <jpa:repositories base-package="com.isaac.conversationplatform.dao" />
-    <context:component-scan base-package="com.isaac.conversationplatform.dao"/>
-
+    <!--<context:component-scan base-package="com.isaac.conversationplatform.dao"/>-->
+    <context:annotation-config />
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="ignoreResourceNotFound" value="false"/>

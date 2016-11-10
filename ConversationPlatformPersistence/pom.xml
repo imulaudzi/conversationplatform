@@ -8,7 +8,7 @@
     </parent>
     <artifactId>ConversationPlatformPersistence</artifactId>
     <name>ConversationPlatformPersistence [JAR]</name>
-    <!--<packaging>jar</packaging>-->
+    <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
