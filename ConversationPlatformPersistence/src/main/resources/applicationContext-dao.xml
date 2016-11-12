@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+           http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <jpa:repositories base-package="com.isaac.conversationplatform.dao" />
-    <!--<context:component-scan base-package="com.isaac.conversationplatform.dao"/>-->
-    <context:annotation-config />
+    <jpa:repositories base-package="com.isaac.conversationplatform.dao"/>
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="ignoreResourceNotFound" value="false"/>
         <property name="locations">
             <list>
-                <value>classpath:/com/isaac/conversationplatform/common.properties</value>
+                <value>classpath*:/com/isaac/conversationplatform/common.properties</value>
             </list>
         </property>
     </bean>
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="poolName" value="springHikariCP"/>
         <property name="connectionTestQuery" value="SELECT 1"/>
-        <!--<property name="dataSourceClassName" value=""-->
+        <property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"/>
         <!--<property name="maximumPoolSize" value=""-->
         <!--<property name="idleTimeout" value=""-->
         <property name="dataSourceProperties">
             <props>
-                <prop key="jdbcUrl">${db.url}</prop>
-                <prop key="username">${db.username}</prop>
-                <prop key="password">${db.password}</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/convo_plat</prop>
+                <prop key="user">convo_sys</prop>
+                <prop key="password">convo_sys</prop>
             </props>
         </property>
     </bean>
@@ -40,11 +41,11 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
-                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
-                <prop key="hibernate.ejb.naming_strategy">${hibernate.ejb.naming_strategy}</prop>
-                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
-                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+                <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
                 <!--<prop key="hib">${}</prop>-->
                 <!--<prop key="hib">${}</prop>-->
             </props>
