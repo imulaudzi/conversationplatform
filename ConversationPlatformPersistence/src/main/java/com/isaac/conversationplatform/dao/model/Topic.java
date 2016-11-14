@@ -1,11 +1,6 @@
 package com.isaac.conversationplatform.dao.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -24,7 +19,9 @@ public class Topic {
     //TODO content is either text, audio, photo or video
     @Column(name = "CONTENT")
     private String content;
-    @Column(name = "POSTED_BY")
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
+//    @Column(name = "POSTED_BY")
     private UserInfo postedBy;
     @Column(name = "POSTED_DATE_TIME")
     private Date postedOnDate;

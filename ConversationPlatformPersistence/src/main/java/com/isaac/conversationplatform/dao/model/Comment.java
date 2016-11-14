@@ -18,10 +18,16 @@ public class Comment {
     //TODO content is either text, audio, photo or video
     @Column(name = "CONTENT")
     private String content;
-    @Column(name = "POSTED_BY")
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
     private UserInfo postedBy;
-    @Column(name = "TOPIC_ID")
+
+
+    @ManyToOne
+    @JoinColumn(name = "TOPIC_ID")
     private Topic topicId;
+
     @Column(name = "POSTED_DATE_TIME")
     private LocalDateTime postedOnDate;
 

@@ -1,11 +1,6 @@
 package com.isaac.conversationplatform.dao.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by isaac on 2016/09/07.
@@ -18,11 +13,17 @@ public class Like {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "LIKE_ID")
     private Long like_id;
-    @Column(name = "USER_ID")
+
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
     private UserInfo userId;
-    @Column(name = "TOPIC_ID")
+
+    @JoinColumn(name = "TOPIC_ID")
+    @ManyToOne
     private Topic topicId;
-    @Column(name = "COMMENT_ID")
+
+    @JoinColumn(name = "COMMENT_ID")
+    @ManyToOne
     private Comment commentId;
 
     public UserInfo getUserId() {
