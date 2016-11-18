@@ -3,13 +3,14 @@ package com.isaac.conversationplatform.dao.model;
 import com.isaac.conversationplatform.dao.model.enums.AccountStatus;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
  * Created by isaac on 2016/09/06.
  */
 @Entity
-@Table(name = "USER_DETAILS")
+@Table(name = "USER_INFO")
 public class UserInfo {
 
     @Id
@@ -24,9 +25,9 @@ public class UserInfo {
     private String displayName;
     @Column(name = "DATE_OF_BIRTH")
     private LocalDateTime dateOfBirth;
-    @Column(name = "EMAIL_ADDRESS")
+    @Column(name = "EMAIL_ADDRESS",unique = true, nullable = false)
     private String emailAddress;
-    @Column(name = "ID_NUMBER")
+    @Column(name = "ID_NUMBER",unique = true, nullable = false)
     private String IDnumber;
     @Column(name = "ACCOUNT_STATUS")
     @Enumerated(EnumType.STRING)
@@ -104,5 +105,23 @@ public class UserInfo {
 
     public void setRegisteredOn(LocalDateTime registeredOn) {
         this.registeredOn = registeredOn;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("UserInfo");
+        sb.append("{userId=").append(userId);
+        sb.append(", name=").append(name);
+        sb.append(", surname=").append(surname);
+        sb.append(", displayName=").append(displayName);
+        sb.append(", dateOfBirth=").append(dateOfBirth);
+        sb.append(", emailAddress=").append(emailAddress);
+        sb.append(", IDnumber=").append(IDnumber);
+        sb.append(", accountStatus=").append(accountStatus);
+        sb.append(", registeredOn=").append(registeredOn);
+        sb.append("}");
+
+        return sb.toString();
     }
 }

@@ -33,18 +33,20 @@ public class UserController {
         return "welcome";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE},produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public UserAccountResponse register(@RequestBody UserAccountRequest register) {
 
         UserInfo userInfo = registrationTransformer.userInfoFromXsdObject(register);
         UserAccountStatus userAccountStatus = userInfoService.registerUser(userInfo);
 
-        return this.registrationResponse( userAccountStatus);
+        return this.registrationResponse(userAccountStatus);
     }
 
-    private UserAccountResponse registrationResponse(  UserAccountStatus userAccountStatus) {
+    private UserAccountResponse registrationResponse(UserAccountStatus userAccountStatus) {
         UserAccountResponse response = new UserAccountResponse();
-        response.setUserId(userAccountStatus.getUserId());
+        if (userAccountStatus.getUserInfo() != null) {
+            response.setUserId(userAccountStatus.getUserInfo().getUserId());
+        }
         response.setResponseCodeMessage(ResponseUtil.responseFromEnum(userAccountStatus.getReturnCodeLookUp()));
 
         return response;

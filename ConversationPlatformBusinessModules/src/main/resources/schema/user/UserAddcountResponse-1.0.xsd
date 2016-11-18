@@ -7,10 +7,10 @@
         <xs:complexType>
             <xs:complexContent>
                 <xs:extension base="GenericResponse">
-                <xs:sequence>
-                    <xs:element name="userId" type="xs:long" minOccurs="0" maxOccurs="1"/>
-                    <xs:element name="linkedStatus" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                </xs:sequence>
+                    <xs:sequence>
+                        <xs:element name="userId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="linkedStatus" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    </xs:sequence>
                 </xs:extension>
             </xs:complexContent>
         </xs:complexType>

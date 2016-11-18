@@ -6,6 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 /**
  * Created by isaac on 2016/09/19.
@@ -20,4 +22,8 @@ public interface UserInfoRepository extends CrudRepository<UserInfo, Long> {
 
     @Query("SELECT u FROM UserInfo u WHERE u.IDnumber = :idNumber")
     public UserInfo findUserByIDNumber(@Param("idNumber") String idNumber);
+
+    @Query("SELECT u FROM UserInfo u WHERE u.displayName = :displayName")
+    public List<UserInfo> findUserByDisplayName(@Param("displayName") String displayName);
+
 }

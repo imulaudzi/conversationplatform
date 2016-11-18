@@ -2,8 +2,6 @@ package com.isaac.conversationplatform.service;
 
 import com.isaac.conversationplatform.dao.model.UserInfo;
 import com.isaac.conversationplatform.dto.UserAccountStatus;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -23,6 +21,8 @@ public interface UserInfoService {
     UserInfo findbyEmailAddress(String emailAddress);
 
     List<UserInfo> findbyDisplayName(String displayName);
+
+    UserInfo findbyIdNumber(String IDNumber);
 
     List<UserInfo> findAll();
 

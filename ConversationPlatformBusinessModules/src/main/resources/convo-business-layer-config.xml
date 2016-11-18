@@ -10,4 +10,8 @@
     <context:component-scan base-package="com.isaac.conversationplatform.transformation"/>
     <context:component-scan base-package="com.isaac.conversationplatform.dao"/>
 
+    <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="packagesToScan" value="com.isaac.conversationplatform.generated" />
+    </bean>
 </beans>
+

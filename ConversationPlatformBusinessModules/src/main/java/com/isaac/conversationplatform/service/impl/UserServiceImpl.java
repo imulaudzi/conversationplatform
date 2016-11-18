@@ -9,12 +9,10 @@ import com.isaac.conversationplatform.util.ReturnCodeLookUp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -39,7 +37,9 @@ public class UserServiceImpl implements UserInfoService {
             LOGGER.info("User already registered.");
         } else {
             LOGGER.info("This user is not registered. Will continue and create the user...");
-            registrationStatus.setUserInfo( createUser(userInfo));
+            registrationStatus.setUserInfo(createUser(userInfo));
+            registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.SUCCESS);
+            LOGGER.info("After Reg : "+userInfo.toString());
         }
         return registrationStatus;
     }
@@ -72,22 +72,28 @@ public class UserServiceImpl implements UserInfoService {
     @Override
     public UserInfo createUser(UserInfo userInfo) {
         userInfo.setAccountStatus(AccountStatus.PENDING);
+        userInfo.setRegisteredOn(LocalDateTime.now());
         return userInfoRepository.save(userInfo);
     }
 
     @Override
     public UserInfo findbyId(Long userId) {
-        return null;
+        return userInfoRepository.findOne(userId);
     }
 
     @Override
     public UserInfo findbyEmailAddress(String emailAddress) {
-        return null;
+        return userInfoRepository.findUserByEmail(emailAddress);
     }
 
     @Override
     public List<UserInfo> findbyDisplayName(String displayName) {
-        return null;
+        return userInfoRepository.findUserByDisplayName(displayName);
+    }
+
+    @Override
+    public UserInfo findbyIdNumber(String IDNumber) {
+        return userInfoRepository.findUserByIDNumber(IDNumber);
     }
 
     @Override

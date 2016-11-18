@@ -7,9 +7,9 @@
                 <xs:element minOccurs="1" name="name" type="xs:string"/>
                 <xs:element minOccurs="0" name="surname" type="xs:string"/>
                 <xs:element minOccurs="1" name="displayName" type="xs:string"/>
-                <xs:element minOccurs="0" name="dateOfBirth" type="xs:dateTime"/>
+                <xs:element minOccurs="0" name="dateOfBirth" type="xs:date"/>
                 <xs:element minOccurs="1" name="emailAddress" type="xs:string"/>
-                <xs:element minOccurs="0" name="idNumber" type="xs:string" />
+                <xs:element minOccurs="0" name="idNumber" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
