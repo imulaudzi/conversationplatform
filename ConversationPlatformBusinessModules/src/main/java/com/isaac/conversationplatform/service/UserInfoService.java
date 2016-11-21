@@ -12,7 +12,7 @@ public interface UserInfoService {
 
     UserAccountStatus registerUser(UserInfo userInfo);
 
-    UserInfo deRegisterUSer(UserInfo userInfo);
+    UserAccountStatus deRegisterUSer(UserInfo userInfo);
 
     UserInfo createUser(UserInfo userInfo);
 

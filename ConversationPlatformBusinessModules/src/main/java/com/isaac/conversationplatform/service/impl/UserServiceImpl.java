@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserInfoService {
             LOGGER.info("This user is not registered. Will continue and create the user...");
             registrationStatus.setUserInfo(createUser(userInfo));
             registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.SUCCESS);
-            LOGGER.info("After Reg : "+userInfo.toString());
+            LOGGER.info("After Reg : " + userInfo.toString());
         }
         return registrationStatus;
     }
@@ -54,7 +54,9 @@ public class UserServiceImpl implements UserInfoService {
             } else if (userSearchDetails.getIDnumber() != null) {
                 LOGGER.info(String.format("Searching User with ID Number : %s ", userSearchDetails.getIDnumber()));
                 foundUser = userInfoRepository.findUserByIDNumber(userSearchDetails.getIDnumber());
-
+            } else if (userSearchDetails.getUserId() != null) {
+                LOGGER.info(String.format("Searching User with User ID : %s ", userSearchDetails.getUserId()));
+                foundUser = userInfoRepository.findOne(userSearchDetails.getUserId());
             }
 
         } else {
@@ -65,7 +67,25 @@ public class UserServiceImpl implements UserInfoService {
 
 
     @Override
-    public UserInfo deRegisterUSer(UserInfo userInfo) {
+    public UserAccountStatus deRegisterUSer(UserInfo userInfo) {
+        UserInfo foundUser;
+        UserAccountStatus registrationStatus = new UserAccountStatus();
+
+        foundUser = this.findThisUser(userInfo);
+
+        if(foundUser == null) {
+            LOGGER.info("The User you are attempting to deRegister is not registered on the system");
+        } else {
+            LOGGER.info("The User you are attempting to deRegister is registered on the system");
+
+            if (!AccountStatus.INACTIVE.equals(foundUser.getAccountStatus())) {
+
+            }
+        }
+
+        //TODO see if user exists and is not already unregistered
+        //TODO if Yes, UnRegister the user
+
         return null;
     }
 
