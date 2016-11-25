@@ -42,6 +42,14 @@ public class UserController {
         return this.registrationResponse(userAccountStatus);
     }
 
+    @RequestMapping(value = "/deregister", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public UserAccountResponse deRegister(@RequestBody UserAccountRequest deRegister) {
+        UserInfo userInfo = registrationTransformer.userInfoFromXsdObject(deRegister);
+        UserAccountStatus userAccountStatus = userInfoService.deRegisterUSer(userInfo);
+
+        return this.registrationResponse(userAccountStatus);
+    }
+
     private UserAccountResponse registrationResponse(UserAccountStatus userAccountStatus) {
         UserAccountResponse response = new UserAccountResponse();
         if (userAccountStatus.getUserInfo() != null) {

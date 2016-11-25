@@ -73,20 +73,28 @@ public class UserServiceImpl implements UserInfoService {
 
         foundUser = this.findThisUser(userInfo);
 
-        if(foundUser == null) {
+        if (foundUser == null) {
+            registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.USER_DOES_NOT_EXIST);
             LOGGER.info("The User you are attempting to deRegister is not registered on the system");
         } else {
             LOGGER.info("The User you are attempting to deRegister is registered on the system");
 
-            if (!AccountStatus.INACTIVE.equals(foundUser.getAccountStatus())) {
-
+            if (AccountStatus.INACTIVE.equals(foundUser.getAccountStatus())) {
+                registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.USER_ALREADY_INACTIVE);
+                LOGGER.info("The User you are attempting to deRegister is InActive");
+                registrationStatus.setUserInfo(foundUser);
+            } else {
+                Integer i = userInfoRepository.deRegister(foundUser.getUserId());
+                if(i.equals(1)){
+                    registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.USER_DEREGISTERED_SUCCESS);
+                } else {
+                    registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.UNHANDLED_ERROR);
+                }
+                registrationStatus.setUserInfo(foundUser);
             }
         }
 
-        //TODO see if user exists and is not already unregistered
-        //TODO if Yes, UnRegister the user
-
-        return null;
+        return registrationStatus;
     }
 
     @Override
