@@ -1,6 +1,7 @@
 package com.isaac.conversationplatform.dao.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -24,7 +25,7 @@ public class Topic {
 //    @Column(name = "POSTED_BY")
     private UserInfo postedBy;
     @Column(name = "POSTED_DATE_TIME")
-    private Date postedOnDate;
+    private LocalDateTime postedOnDate;
 
     public Long getTopicId() {
         return topicId;
@@ -58,11 +59,11 @@ public class Topic {
         this.postedBy = postedBy;
     }
 
-    public Date getPostedOnDate() {
+    public LocalDateTime getPostedOnDate() {
         return postedOnDate;
     }
 
-    public void setPostedOnDate(Date postedOnDate) {
+    public void setPostedOnDate(LocalDateTime postedOnDate) {
         this.postedOnDate = postedOnDate;
     }
 }

@@ -126,6 +126,6 @@ public class UserServiceImpl implements UserInfoService {
 
     @Override
     public List<UserInfo> findAll() {
-        return null;
+        return (List<UserInfo>) userInfoRepository.findAll();
     }
 }

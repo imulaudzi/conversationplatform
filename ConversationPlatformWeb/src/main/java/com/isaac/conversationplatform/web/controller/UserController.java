@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/user")
@@ -27,11 +26,6 @@ public class UserController {
     private UserInfoService userInfoService;
     @Autowired
     private RegistrationTransformer registrationTransformer;
-
-    @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String hello() {
-        return "welcome";
-    }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public UserAccountResponse register(@RequestBody UserAccountRequest register) {
@@ -58,14 +52,5 @@ public class UserController {
         response.setResponseCodeMessage(ResponseUtil.responseFromEnum(userAccountStatus.getReturnCodeLookUp()));
 
         return response;
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView helloWorld() {
-
-        ModelAndView model = new ModelAndView("welcome");
-        model.addObject("msg", "hello world");
-
-        return model;
     }
 }
