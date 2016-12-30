@@ -2,7 +2,6 @@ package com.isaac.conversationplatform.dao.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * Created by isaac on 2016/09/06.
@@ -22,7 +21,6 @@ public class Topic {
     private String content;
     @ManyToOne
     @JoinColumn(name = "USER_ID")
-//    @Column(name = "POSTED_BY")
     private UserInfo postedBy;
     @Column(name = "POSTED_DATE_TIME")
     private LocalDateTime postedOnDate;

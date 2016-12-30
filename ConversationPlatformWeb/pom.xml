@@ -78,6 +78,9 @@
                     <webApp>
                         <contextPath>/convo-web</contextPath>
                     </webApp>
+                    <httpConnector>
+                        <port>9090</port>
+                    </httpConnector>
                 </configuration>
             </plugin>
             <plugin>

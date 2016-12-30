@@ -27,14 +27,6 @@
                         <arg>2.0</arg>
                     </args>
                 </configuration>
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.jsondoc</groupId>-->
-                        <!--<artifactId>jsondoc-core</artifactId>-->
-                        <!--<version>${jsondoc.version}</version>-->
-                    <!--</dependency>-->
-
-                <!--</dependencies>-->
                 <executions>
                     <execution>
                         <id>Common type generation</id>
@@ -46,19 +38,12 @@
                             <generateDirectory>${project.build.directory}/generated-sources/</generateDirectory>
                             <generatePackage>com.isaac.conversationplatform.generated</generatePackage>
                             <schemaDirectory>src/main/resources/schema/</schemaDirectory>
-
                             <schemaIncludes>
                                 <includeSchema>UserAccountRequest-1.0.xsd</includeSchema>
                                 <includeSchema>*/*.xsd</includeSchema>
                                 <includeSchema>*/*/*.xsd</includeSchema>
                             </schemaIncludes>
-
                             <bindingDirectory>src/main/resources/schema/</bindingDirectory>
-                            <!--<bindingIncludes>-->
-                                <!--<include>common-1.0.xjb</include>-->
-                            <!--</bindingIncludes>-->
-
-
                             <extension>true</extension>
                             <args>
                                 <arg>-Xannotate</arg>
@@ -75,8 +60,27 @@
                                     <artifactId>jaxb2-basics-annotate</artifactId>
                                     <version>${jaxb.annotations.version}</version>
                                 </plugin>
-
                             </plugins>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>set-system-properties</goal>
+                        </goals>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>javax.xml.accessExternalSchema</name>
+                                    <value>all</value>
+                                </property>
+                            </properties>
                         </configuration>
                     </execution>
                 </executions>
