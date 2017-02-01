@@ -47,32 +47,33 @@ public class UserServiceImpl implements UserInfoService {
     UserInfo findThisUser(UserInfo userSearchDetails) {
         UserInfo foundUser = null;
         if (userSearchDetails != null) {
-
-            if (userSearchDetails.getEmailAddress() != null) {
-                LOGGER.info(String.format("Searching User with Email Address : %s ", userSearchDetails.getEmailAddress()));
+            UserInfo userInfo = new UserInfo();
+            if (userSearchDetails.getEmailAddress() != null && searchUserByEmail(userSearchDetails) != null) {
                 foundUser = userInfoRepository.findUserByEmail(userSearchDetails.getEmailAddress());
-            } else if (userSearchDetails.getIDnumber() != null) {
-                LOGGER.info(String.format("Searching User with ID Number : %s ", userSearchDetails.getIDnumber()));
+            } else if (userSearchDetails.getIDnumber() != null && searchUserByIDNumber(userSearchDetails) != null) {
                 foundUser = userInfoRepository.findUserByIDNumber(userSearchDetails.getIDnumber());
-            } else if (userSearchDetails.getUserId() != null) {
-                LOGGER.info(String.format("Searching User with User ID : %s ", userSearchDetails.getUserId()));
-                foundUser = userInfoRepository.findOne(userSearchDetails.getUserId());
             }
-
         } else {
             LOGGER.info("UserSearchDetails is null.");
         }
         return foundUser;
     }
 
+    private UserInfo searchUserByEmail(UserInfo userSearchDetails) {
+        LOGGER.info(String.format("Searching User with Email Address : %s ", userSearchDetails.getEmailAddress()));
+        return userInfoRepository.findUserByEmail(userSearchDetails.getEmailAddress());
+    }
+
+    private UserInfo searchUserByIDNumber(UserInfo userSearchDetails) {
+        LOGGER.info(String.format("Searching User with ID Number : %s ", userSearchDetails.getIDnumber()));
+        return userInfoRepository.findUserByIDNumber(userSearchDetails.getIDnumber());
+    }
 
     @Override
     public UserAccountStatus deRegisterUSer(UserInfo userInfo) {
         UserInfo foundUser;
         UserAccountStatus registrationStatus = new UserAccountStatus();
-
         foundUser = this.findThisUser(userInfo);
-
         if (foundUser == null) {
             registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.USER_DOES_NOT_EXIST);
             LOGGER.info("The User you are attempting to deRegister is not registered on the system");
@@ -85,7 +86,7 @@ public class UserServiceImpl implements UserInfoService {
                 registrationStatus.setUserInfo(foundUser);
             } else {
                 Integer i = userInfoRepository.deRegister(foundUser.getUserId());
-                if(i.equals(1)){
+                if (i.equals(1)) {
                     registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.USER_DEREGISTERED_SUCCESS);
                 } else {
                     registrationStatus.setReturnCodeLookUp(ReturnCodeLookUp.UNHANDLED_ERROR);
@@ -93,7 +94,6 @@ public class UserServiceImpl implements UserInfoService {
                 registrationStatus.setUserInfo(foundUser);
             }
         }
-
         return registrationStatus;
     }
 

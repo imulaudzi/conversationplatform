@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wls:weblogic-application
-        xmlns:wls="http://www.bea.com/ns/weblogic/90"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.bea.com/ns/weblogic/90 http://www.bea.com/ns/weblogic/90/weblogic-application.xsd">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<wls:weblogic-application-->
+        <!--xmlns:wls="http://www.bea.com/ns/weblogic/90"-->
+        <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+        <!--xsi:schemaLocation="http://www.bea.com/ns/weblogic/90 http://www.bea.com/ns/weblogic/90/weblogic-application.xsd">-->
 
-    <wls:prefer-application-packages>
-        <wls:package-name>org.springframework.*</wls:package-name>
-        <wls:package-name>org.hibernate.*</wls:package-name>
-        <wls:package-name>antlr.*</wls:package-name>
-        <wls:package-name>org.codehaus.jackson.*</wls:package-name>
-        <wls:package-name>org.apache.log4j.*</wls:package-name>
-        <!--<wls:package-name>org.slf4j</wls:package-name>-->
-        <wls:package-name>org.apache.ws.commons.schema</wls:package-name>
-    </wls:prefer-application-packages>
+    <!--<wls:prefer-application-packages>-->
+        <!--<wls:package-name>org.springframework.*</wls:package-name>-->
+        <!--<wls:package-name>org.hibernate.*</wls:package-name>-->
+        <!--<wls:package-name>antlr.*</wls:package-name>-->
+        <!--<wls:package-name>org.codehaus.jackson.*</wls:package-name>-->
+        <!--<wls:package-name>org.apache.log4j.*</wls:package-name>-->
+        <!--&lt;!&ndash;<wls:package-name>org.slf4j</wls:package-name>&ndash;&gt;-->
+        <!--<wls:package-name>org.apache.ws.commons.schema</wls:package-name>-->
+    <!--</wls:prefer-application-packages>-->
 
-    <wls:max-threads-constraint>
-        <wls:name>OnlineMaxThreadsConstraint</wls:name>
-        <wls:count>100</wls:count>
-    </wls:max-threads-constraint>
+    <!--<wls:max-threads-constraint>-->
+        <!--<wls:name>OnlineMaxThreadsConstraint</wls:name>-->
+        <!--<wls:count>100</wls:count>-->
+    <!--</wls:max-threads-constraint>-->
 
-    <wls:max-threads-constraint>
-        <wls:name>OfflineMaxThreadsConstraint</wls:name>
-        <wls:count>300</wls:count>
-    </wls:max-threads-constraint>
+    <!--<wls:max-threads-constraint>-->
+        <!--<wls:name>OfflineMaxThreadsConstraint</wls:name>-->
+        <!--<wls:count>300</wls:count>-->
+    <!--</wls:max-threads-constraint>-->
 
-    <wls:min-threads-constraint>
-        <wls:name>MinThreadsConstraint</wls:name>
-        <wls:count>10</wls:count>
-    </wls:min-threads-constraint>
+    <!--<wls:min-threads-constraint>-->
+        <!--<wls:name>MinThreadsConstraint</wls:name>-->
+        <!--<wls:count>10</wls:count>-->
+    <!--</wls:min-threads-constraint>-->
 
-    <wls:capacity>
-        <wls:name>Capacity</wls:name>
-        <wls:count>500</wls:count>
-    </wls:capacity>
-</wls:weblogic-application>
+    <!--<wls:capacity>-->
+        <!--<wls:name>Capacity</wls:name>-->
+        <!--<wls:count>500</wls:count>-->
+    <!--</wls:capacity>-->
+<!--</wls:weblogic-application>-->

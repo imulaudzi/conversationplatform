@@ -1,5 +1,7 @@
 package com.isaac.conversationplatform.dao.model;
 
+import org.springframework.context.annotation.Lazy;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -19,9 +21,11 @@ public class Topic {
     //TODO content is either text, audio, photo or video
     @Column(name = "CONTENT")
     private String content;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private UserInfo postedBy;
+    @Column(name = "DUPLICATE_HASH")
+    private String duplicateHash;
     @Column(name = "POSTED_DATE_TIME")
     private LocalDateTime postedOnDate;
 
@@ -63,5 +67,13 @@ public class Topic {
 
     public void setPostedOnDate(LocalDateTime postedOnDate) {
         this.postedOnDate = postedOnDate;
+    }
+
+    public String getDuplicateHash() {
+        return duplicateHash;
+    }
+
+    public void setDuplicateHash(String duplicateHash) {
+        this.duplicateHash = duplicateHash;
     }
 }

@@ -1,0 +1,10 @@
+{"namespace":"com.isaac.conversationplatform.generatedAvro",
+"type": "record",
+"name": "TopicRequest",
+"fields": [
+{"name": "topicDescription", "type": "string"},
+{"name": "content", "type": "string"},
+{"name": "postedBy", "type": "long"}
+
+]
+}

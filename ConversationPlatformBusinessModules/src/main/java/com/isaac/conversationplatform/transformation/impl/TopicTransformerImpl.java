@@ -2,7 +2,7 @@ package com.isaac.conversationplatform.transformation.impl;
 
 import com.isaac.conversationplatform.dao.model.Topic;
 import com.isaac.conversationplatform.dao.model.UserInfo;
-import com.isaac.conversationplatform.generated.TopicRequest;
+import com.isaac.conversationplatform.generatedAvro.TopicRequest;
 import com.isaac.conversationplatform.transformation.TopicTransformer;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +16,8 @@ public class TopicTransformerImpl implements TopicTransformer {
         Topic topic = new Topic();
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId(topicRequest.getPostedBy());
-        topic.setTopicDescription(topicRequest.getTopicDescription());
-        topic.setContent(topicRequest.getContent());
+        topic.setTopicDescription(topicRequest.getTopicDescription().toString());
+        topic.setContent(topicRequest.getContent().toString());
         topic.setPostedBy(userInfo);
         return topic;
     }

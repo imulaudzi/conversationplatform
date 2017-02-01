@@ -49,24 +49,31 @@
             <type>jar</type>
         </dependency>
         <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>ConversationPlatformBusinessModules</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ConversationPlatformBusinessModules</artifactId>
             <version>${project.version}</version>
             <type>jar</type>
-    </dependency>
-    <dependency>
-        <groupId>${project.groupId}</groupId>
-        <artifactId>ConversationPlatformConfig</artifactId>
-        <version>${project.version}</version>
-        <type>jar</type>
-    </dependency>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ConversationPlatformConfig</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>ConversationPlatformWeb</artifactId>
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
-</dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ConversationPlatformIntegration</artifactId>
+            <version>${project.version}</version>
+            <!--<type>war</type>-->
+        </dependency>
+
+    </dependencies>
 
 
-        </project>
+</project>

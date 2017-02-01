@@ -69,32 +69,32 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.3.14.v20161028</version>
-                <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <webApp>
-                        <contextPath>/convo-web</contextPath>
-                    </webApp>
-                    <httpConnector>
-                        <port>9090</port>
-                    </httpConnector>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/webapp/</directory>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.eclipse.jetty</groupId>-->
+                <!--<artifactId>jetty-maven-plugin</artifactId>-->
+                <!--<version>9.3.14.v20161028</version>-->
+                <!--<configuration>-->
+                    <!--<scanIntervalSeconds>10</scanIntervalSeconds>-->
+                    <!--<webApp>-->
+                        <!--<contextPath>/convo-web</contextPath>-->
+                    <!--</webApp>-->
+                    <!--<httpConnector>-->
+                        <!--<port>9090</port>-->
+                    <!--</httpConnector>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<webXml>src/main/webapp/WEB-INF/web.xml</webXml>-->
+                    <!--<webResources>-->
+                        <!--<resource>-->
+                            <!--<directory>src/main/webapp/</directory>-->
+                        <!--</resource>-->
+                    <!--</webResources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>

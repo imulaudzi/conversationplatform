@@ -7,10 +7,14 @@ public enum ReturnCodeLookUp {
     UNKNOWN_ERROR(-1, "An unknown error occurred"),
     SUCCESS(1,"Success"),
     USER_ALREADY_REGISTERED(2,"User already registered"),
+    USER_NOT_REGISTERED(3,"User is not registered"),
+    USER_IS_INACTIVE(4, "The user is inactive"),
     UNHANDLED_ERROR(1999,"Unhandled exception"),
     USER_DEREGISTERED_SUCCESS(3000,"The user de-registered successfully"),
     USER_DOES_NOT_EXIST(3001,"The user does not exist"),
-    USER_ALREADY_INACTIVE(3002, "The user is already inactive");
+    USER_ALREADY_INACTIVE(3002, "The user is already inactive"),
+
+    DUPLICATE_TOPIC(3011,"Duplicate topic"),;
 
     private final Integer returnCode;
 

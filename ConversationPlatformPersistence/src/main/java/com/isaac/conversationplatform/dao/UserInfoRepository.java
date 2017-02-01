@@ -34,4 +34,7 @@ public interface UserInfoRepository extends CrudRepository<UserInfo, Long> {
     @Query("UPDATE UserInfo u set u.accountStatus = 'INACTIVE' WHERE u.userId = :userId")
     public Integer deRegister(@Param("userId") Long userId);
 
+    @Query("SELECT u  FROM UserInfo u WHERE u.accountStatus in ('PENDING','ACTIVE') and u.userId = :userId")
+    public UserInfo isUserActiveOrPending(@Param("userId") Long userId);
+
 }
