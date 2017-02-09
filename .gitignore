@@ -9,6 +9,7 @@
 
 activemq-data/
 target/
+classes/
 
 test_report.log*
 
